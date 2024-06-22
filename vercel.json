@@ -4,7 +4,7 @@
          "src": "./AJCS_Detection/wsgi.py",
          "use": "@vercel/python",
          "config": {
-            "python": "3.10.10"
+            "python": "3.12.4"
          }
       }
    ],
