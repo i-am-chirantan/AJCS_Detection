@@ -2,7 +2,10 @@
    "builds": [
       {
          "src": "./AJCS_Detection/wsgi.py",
-         "use": "@vercel/python"
+         "use": "@vercel/python",
+         "config": {
+            "python": "3.10.10"
+         }
       }
    ],
    "routes": [
