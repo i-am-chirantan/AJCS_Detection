@@ -1,0 +1,254 @@
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Foodzone</title>
+        <meta content="width=device-width, initial-scale=1.0" name="viewport">
+        <meta content="Free Website Template" name="keywords">
+        <meta content="Free Website Template" name="description">
+
+        <!-- Favicon -->
+        <link href="/static/img/favicon.ico" rel="icon">
+
+        <!-- Google Font -->
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400|Nunito:600,700" rel="stylesheet"> 
+        
+        <!-- CSS Libraries -->
+        <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+        <link href="/static/lib/animate/animate.min.css" rel="stylesheet">
+        <link href="/static/lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+        <link href="/static/lib/flaticon/font/flaticon.css" rel="stylesheet">
+        <link href="/static/lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css" rel="stylesheet" />
+
+        <!-- Template Stylesheet -->
+        <link href="/static/css/style.css" rel="stylesheet">
+        <style>
+      .container{
+        background: #fff;
+        width: 100%;
+        border-radius: 5px;
+        box-shadow: 0 10px 10px rgba(0, 0, 0, 0.15);
+      }
+      .container form .title{
+        font-size: 30px;
+        font-weight: 600;
+        margin: 20px 0 10px 0;
+        position: relative;
+      }
+      .container form .title:before{
+        content: '';
+        position: absolute;
+        height: 4px;
+        width: 33px;
+        left: 0px;
+        bottom: 3px;
+        border-radius: 5px;
+        background: linear-gradient(to right, #030099 0%, #005eff 100%);
+      }
+      .container form .input-box{
+        width: 100%;
+        height: 45px;
+        margin-top: 25px;
+        position: relative;
+      }
+      .container form .input-box input{
+        width: 100%;
+        height: 100%;
+        outline: none;
+        font-size: 16px;
+        border: none;
+      }
+      .container form .underline::before{
+        content: '';
+        position: absolute;
+        height: 2px;
+        width: 100%;
+        background: #ccc;
+        left: 0;
+        bottom: 0;
+      }
+      .container form .underline::after{
+        content: '';
+        position: absolute;
+        height: 2px;
+        width: 100%;
+        background: linear-gradient(to right, #030099 0%, #005eff 100%);
+        left: 0;
+        bottom: 0;
+        transform: scaleX(0);
+        transform-origin: left;
+        transition: all 0.3s ease;
+      }
+      .container form .input-box input:focus ~ .underline::after,
+      .container form .input-box input:valid ~ .underline::after{
+        transform: scaleX(1);
+        transform-origin: left;
+      }
+      .container form .button{
+        margin: 40px 0 20px 0;
+      }
+      .container .input-box input[type="submit"]{
+        background: linear-gradient(to right, #030099 0%, #005eff 100%);
+        font-size: 17px;
+        color: #fff;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+      }
+      .container .input-box input[type="submit"]:hover{
+        letter-spacing: 1px;
+        background: linear-gradient(to right, #030099 0%, #005eff 100%);
+      }
+      .container .option{
+        font-size: 14px;
+        text-align: center;
+      }
+      .container .facebook a,
+      .container .twitter a{
+        display: block;
+        height: 45px;
+        width: 100%;
+        font-size: 15px;
+        text-decoration: none;
+        padding-left: 20px;
+        line-height: 45px;
+        color: #fff;
+        border-radius: 5px;
+        transition: all 0.3s ease;
+      }
+      
+      .container .facebook i,
+      .container .twitter i{
+        padding-right: 12px;
+        font-size: 20px;
+      }
+      .container .twitter a{
+        background: linear-gradient(to right,  #00acee 0%, #1abeff 100%);
+        margin: 20px 0 15px 0;
+      }
+      .container .twitter a:hover{
+        background: linear-gradient(to left,  #00acee 0%, #1abeff 100%);
+        margin: 20px 0 15px 0;
+      }
+      .container .facebook a{
+        background: linear-gradient( to right,  #3b5998 0%, #476bb8 100%);
+        margin: 20px 0 50px 0;
+      }
+      .container .facebook a:hover{
+        background: linear-gradient( to left,  #3b5998 0%, #476bb8 100%);
+        margin: 20px 0 50px 0;
+      }
+      
+      @import url("https://fonts.googleapis.com/css2?family=Asap&family=Roboto:ital,wght@0,500;0,900;1,500&display=swap");
+      
+      header {
+        width: 100%;
+        height: auto;
+      
+        margin: 0;
+      }
+      header h1 {
+        padding-left: 20%;
+        width: 90%;
+        font-size: 50px;
+        font-weight: 600;
+        color: transparent;
+        background-image: linear-gradient(to right ,#553c9a, #ee4b2b, #00c2cb, #ff7f50, #553c9a);
+        -webkit-background-clip: text;
+        background-clip: text;    
+        background-size: 200%;
+        background-position: -200%;
+        animation: animated-gradient 2s infinite alternate-reverse;      
+      }
+      #logoe{
+          height: 35vh;
+        }
+      .pheader{
+        position: relative;
+          margin-bottom: 15px;
+          padding: 40px 0px 40px 30px;
+          text-align: left;
+          background: linear-gradient(rgba(0, 0, 0, 0.701), rgba(5, 0, 56, 0.669)), url(/static/img/ajcs\(1\).png);
+          background-position: center;
+          background-repeat: no-repeat;
+          background-size: cover;
+          display: flex;
+          justify-content: space-around;
+      
+      }
+      @keyframes animated-gradient{
+        to{
+          background-position: 200%;
+        }
+       
+      }
+      .name{
+        font-size: 50px;
+        color: #ccc;
+        font-weight: 600;
+      }
+      </style>
+
+
+<div class="post_recipe">
+    <div class="container">
+        <div class="section-header text-center">
+        </div>
+        <br>
+        <div class="row contact-form">
+            <div class="col-md-6">
+                <img src="/static/img/signup.jpg" alt="Image" width="100%" height="100%">
+            </div>
+            <div class="col-md-6">
+                <form name="sentMessage"  novalidate="novalidate" method="post" >
+                    {% csrf_token %}
+                    <form action="#">
+                        <div class="title">Create Account</div>
+                        <div class="input-box">
+                            <input type="text" name="uname" placeholder="Enter your name" required>
+                          </div>
+                          <div class="input-box">
+                            <input type="text" name="uemail" placeholder="Enter your email" required>
+                          </div>
+                          <div class="input-box">
+                            <input type="password" name="upass" placeholder="Create password" required>
+                          </div>
+                          <div class="input-box">
+                            <input type="password" name="upassc" placeholder="Confirm password" required>
+                          </div>
+                          <div class="policy">
+                            <input type="checkbox">
+                            <h5>I accept all terms & condition</h5>
+                          </div>
+                          <div class="input-box button">
+                            <input type="Submit" value="Register Now">
+                          </div>
+                          <div class="text">
+                            <h3>Already have an account? <a href="{% url 'LoginPage' %}">Login</a></h3>
+                          </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+        <script src="/static/lib/easing/easing.min.js"></script>
+        <script src="/static/lib/owlcarousel/owl.carousel.min.js"></script>
+        <script src="/static/lib/tempusdominus/js/moment.min.js"></script>
+        <script src="/static/lib/tempusdominus/js/moment-timezone.min.js"></script>
+        <script src="/static/lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js"></script>
+        
+        <!-- Contact Javascript File -->
+        <script src="/static/mail/jqBootstrapValidation.min.js"></script>
+        <script src="/static/mail/contact.js"></script>
+
+        <!-- Template Javascript -->
+        <script src="/static/js/main.js"></script>
+
+    </body>
+    </html>

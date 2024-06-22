@@ -1,0 +1,151 @@
+{% extends "base.html"%}
+{% load static %}
+
+{% block content %}
+{% if message %}
+
+ {% endif %}
+        <!-- Page Header Start -->
+        <div class="page-header">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <h2>Detect X-Ray Image</h2>
+
+                    </div>
+                    <div class="col-12">
+                        <a href="index.html">Home</a>
+                        <a href="view.html">Detect</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+                        <div class="card">
+                        <h1 class="app-title">
+                            <i class="fas fa-file-upload"></i>
+                            Detection
+                        </h1>
+                        <h3 class="app-subtitle">
+                              Upload X-Ray image
+                          </h3>
+                        <label for="fileInput" class="file-label">
+                            <i class="fas fa-cloud-upload-alt"></i>
+                          Choose a file
+                        </label>
+                        <input type="file" id="fileInput" class="file-input" />
+                        <div class="progress-container">
+                            <div class="progress-bar" id="progressBar"></div>
+                            <div class="progress-text" id="progressText"></div>
+                        </div>
+                        <div class="file-details">
+                            <div class="file-name" id="fileName"></div>
+                            <button class="clear-button" id="clearButton">
+                                <i class="fas fa-times"></i>
+                                Clear
+                            </button>
+                        </div>
+                        <div class="preview-container" id="previewContainer"></div>
+                    </div>
+                    <div class="modal" id="myModal">
+                        <span class="close" id="closeModal">&times;</span>
+                        <img class="modal-content" id="uploadedImageModal">
+                    </div>
+
+
+                    <button id="detectButton">Detect</button>
+                    <p id="output"></p>
+
+                    <!-- Include the app.js file -->
+                    <script src="{% static 'js/app.js' %}"></script>
+
+        </header>
+
+
+        <script>
+            document.addEventListener('DOMContentLoaded', () => {
+                const fInput = document.getElementById('fileInput');
+                const pBar = document.getElementById('progressBar');
+                const pText = document.getElementById('progressText');
+                const fName = document.getElementById('fileName');
+                const modal = document.getElementById('myModal');
+                const cModal = document.getElementById('closeModal');
+                const uImage = document.getElementById('uploadedImageModal');
+                const pContainer = document.getElementById('previewContainer');
+                const cBtn = document.getElementById('clearButton');
+                fInput.addEventListener('change', (event) => {
+                    const file = event.target.files[0];
+                    if (file && file.type.startsWith('image/')) {
+                        const reader = new FileReader();
+                        reader.onloadstart = () => {
+                            pBar.style.width = '0%';
+                            pText.style.display = 'block';
+                            pText.innerText = '0%';
+                            pContainer.style.display = 'none';
+                            cBtn.style.display = 'none';
+                        };
+                        reader.onprogress = (event) => {
+                            if (event.lengthComputable) {
+                                const progress =
+                                    (event.loaded / event.total) * 100;
+                                pBar.style.width = `${progress}%`;
+                                pText.innerText = `${Math.round(progress)}%`;
+                            }
+                        };
+                        reader.onload = () => {
+                            const uploadTime = 4000;
+                            const interval = 50;
+                            const steps = uploadTime / interval;
+                            let currentStep = 0;
+                            const updateProgress = () => {
+                                const progress = (currentStep / steps) * 100;
+                                pBar.style.width = `${progress}%`;
+                                pText.innerText = `${Math.round(progress)}%`;
+                                currentStep++;
+
+                                if (currentStep <= steps) {
+                                    setTimeout(updateProgress, interval);
+                                } else {
+                                    pBar.style.width = '100%';
+                                    pText.innerText = '100%';
+                                    fName.innerText = `File Name: ${file.name}`;
+                                    pContainer.innerHTML =
+                                        `<img src="${reader.result}"
+                                              alt="Preview" id="previewImage">`;
+                                    pContainer.style.display = 'block';
+                                    cBtn.style.display = 'block';
+                                }
+                            };
+                            setTimeout(updateProgress, interval);
+                        };
+                        reader.readAsDataURL(file);
+                    } else {
+                        alert('Please select a valid image file.');
+                        fInput.value = '';
+                    }
+                });
+                pContainer.addEventListener('click', () => {
+                    modal.style.display = 'block';
+                    uImage.src = document.getElementById('previewImage').src;
+                });
+                cModal.addEventListener('click', () => {
+                    modal.style.display = 'none';
+                });
+                cBtn.addEventListener('click', () => {
+                    fInput.value = '';
+                    pBar.style.width = '0%';
+                    pText.style.display = 'none';
+                    fName.innerText = '';
+                    pContainer.style.display = 'none';
+                    cBtn.style.display = 'none';
+                });
+                window.addEventListener('click', (event) => {
+                    if (event.target === modal) {
+                        modal.style.display = 'none';
+                    }
+                });
+            });
+        </script>
+
+{% endblock %}
