@@ -2,11 +2,7 @@
    "builds": [
       {
          "src": "./AJCS_Detection/wsgi.py",
-         "use": "@vercel/python",
-         "config": {
-            "maxLambdaSize": "100mb",
-            "python": "3.10.10"
-         }
+         "use": "@vercel/python"
       }
    ],
    "routes": [
